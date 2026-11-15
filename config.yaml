@@ -1,0 +1,452 @@
+# jobbot configuration — edit freely; changes apply on the next run.
+# Tier A keywords -> instant WhatsApp. Tier B -> one daily digest. Regexes are case-insensitive, matched on the job title.
+# Add a company: copy its careers URL pattern into the right ATS block.
+#   Workday URL  https://zebra.wd501.myworkdayjobs.com/Zebra_careers/...  -> host: zebra.wd501.myworkdayjobs.com, site: Zebra_careers
+#   Greenhouse   job-boards.greenhouse.io/<token>/...                     -> greenhouse: {<token>: Company}
+#   Lever        jobs.lever.co/<token>                                     -> lever: {<token>: Company}
+#   Ashby        jobs.ashbyhq.com/<token>                                  -> ashby: {<token>: Company}
+#   Oracle       <host>/hcmUI/CandidateExperience/en/sites/<site>/...      -> oracle: [{host, site, company}]
+term: Summer 2027
+filters:
+  tier_a_keywords:
+  - product manag
+  - product market
+  - product planning
+  - product strateg
+  - \bproduct intern
+  - products intern
+  - brand manag
+  - brand intern
+  - offering manag
+  - portfolio
+  - category manag
+  - commercial
+  - business develop
+  - market develop
+  - strateg
+  - growth
+  - business planning
+  - go-to-market
+  - \bgtm\b
+  - pricing
+  - revenue growth
+  - upstream marketing
+  - corporate develop
+  - new product
+  tier_b_keywords:
+  - business operations
+  - bizops
+  - operations intern
+  - supply chain
+  - sourcing
+  - procurement
+  - program manag
+  - project manag
+  - business analy
+  - consult
+  - marketing
+  - sales
+  - market research
+  - insights
+  - leadership development
+  - general management
+  - business intern
+  - transformation
+  exclude_title:
+  - software
+  - engineer(?!ing management)
+  - developer
+  - data scien
+  - machine learning
+  - \bml\b
+  - quant
+  - research scientist
+  - phd
+  - accounting
+  - \btax\b
+  - audit
+  - human resources
+  - \bhr\b
+  - legal
+  - paralegal
+  - graphic design
+  - copywrit
+  - cyber
+  - it support
+  - help ?desk
+  - technician
+  - nurs
+  - pharmac
+  - clinical
+  exclude_season:
+  - \bfall\b
+  - \bspring\b
+  - \bwinter\b
+  - \bjanuary\b
+  require_season_word_if_present: '2027'
+priority_companies:
+- 3M
+- 7-Eleven
+- ABB
+- Acxiom
+- Amca
+- American Family Insurance
+- Amgen
+- Applied Materials
+- AspenTech
+- Auto-Owners Insurance
+- Avangrid (Iberdrola)
+- Bedrock Robotics
+- Berkeley Research Group (BRG)
+- Bose
+- Capital One
+- Caterpillar
+- Charles River Associates
+- Cigna Group
+- Clearway Energy Group
+- Cloudflare
+- Cummins
+- Cypress Creek Renewables
+- DIRECTV
+- Dick's Sporting Goods
+- Divergent Technologies
+- Dow
+- Dow Jones
+- Elevance Health
+- Eli Lilly
+- Entegris
+- Fannie Mae
+- Fenwick & West
+- Freddie Mac
+- GE Vernova
+- Gas South
+- General Matter
+- General Motors
+- Great American Insurance Company
+- Guardian Life
+- Guidehouse
+- Highmark Health
+- Honeywell
+- Hubbell
+- Humana
+- IGS Energy / IGS Solar
+- Itron
+- J.M. Smucker
+- John Deere
+- Johns Manville
+- Keysight Technologies
+- Koch Industries
+- Kraft Heinz
+- Kyowa Kirin North America
+- LPL Financial Holdings
+- LabCorp
+- Lennox International
+- Mars Inc.
+- Mastercard
+- Medline
+- Meijer
+- Merck
+- Micron Technology
+- Mohawk Industries
+- Molex
+- Momentive
+- Momentive Performance Materials
+- Momentum
+- Nike
+- Nissan
+- Northwestern Mutual
+- Ocean Spray
+- Oshkosh
+- PACCAR
+- Philips
+- Polaris
+- Procter & Gamble
+- Promega
+- PwC
+- QTS
+- RCLCO
+- RF-SMART
+- RSM
+- Regeneron
+- Repsol (US renewables)
+- Risepoint
+- Rubrik
+- Ryan Companies
+- STERIS
+- Schneider Electric
+- Schonfeld
+- Scout Motors
+- Shure
+- Stryker
+- TIAA
+- The Toro Company (Ditch Witch)
+- Travelers
+- Trinity Life Sciences
+- Trove Brands
+- Trumpf
+- USAA
+- Uline
+- Vertiv
+- Whirlpool
+- Workday
+- Zebra Technologies
+- Zipline
+scoring:
+  enabled: true
+  model: claude-haiku-4-5
+  max_calls_per_run: 25
+  min_score_to_alert: 5
+notify:
+  max_instant_per_run: 8
+  digest_hour_utc: 13
+  warn_after_failures: 12
+gmail_label: INBOX
+targets:
+  workday:
+  - company: 3M
+    host: 3m.wd1.myworkdayjobs.com
+    site: Search
+  - company: 7-Eleven
+    host: my7elevenhr.wd12.myworkdayjobs.com
+    site: Careers
+  - company: ABB
+    host: abb.wd3.myworkdayjobs.com
+    site: external_career_page
+  - company: Acxiom
+    host: acxiomllc.wd5.myworkdayjobs.com
+    site: AcxiomUSA
+  - company: American Family Insurance
+    host: amfam.wd1.myworkdayjobs.com
+    site: AmFamGroupInternCareers
+  - company: Amgen
+    host: amgen.wd1.myworkdayjobs.com
+    site: careers
+  - company: Applied Materials
+    host: amat.wd1.myworkdayjobs.com
+    site: External
+  - company: AspenTech
+    host: aspentech.wd5.myworkdayjobs.com
+    site: aspentech
+  - company: Auto-Owners Insurance
+    host: aoins.wd5.myworkdayjobs.com
+    site: AutoOwners
+  - company: Avangrid (Iberdrola)
+    host: iberdrola.wd3.myworkdayjobs.com
+    site: Iberdrola
+  - company: Berkeley Research Group (BRG)
+    host: thinkbrg.wd5.myworkdayjobs.com
+    site: BRG_External_Career_Site
+  - company: Bose
+    host: boseallaboutme.wd503.myworkdayjobs.com
+    site: Bose_Careers
+  - company: Capital One
+    host: capitalone.wd12.myworkdayjobs.com
+    site: Capital_One
+  - company: Cigna Group
+    host: cigna.wd5.myworkdayjobs.com
+    site: cignacareers
+  - company: DIRECTV
+    host: directv.wd1.myworkdayjobs.com
+    site: careers
+  - company: Dick's Sporting Goods
+    host: dickssportinggoods.wd1.myworkdayjobs.com
+    site: DSG
+  - company: Dow Jones
+    host: dowjones.wd1.myworkdayjobs.com
+    site: Dow_Jones_Career
+  - company: Elevance Health
+    host: elevancehealth.wd1.myworkdayjobs.com
+    site: ELV-ET
+  - company: Eli Lilly
+    host: lilly.wd5.myworkdayjobs.com
+    site: CMP
+  - company: Entegris
+    host: entegris.wd1.myworkdayjobs.com
+    site: entegriscareers
+  - company: Fannie Mae
+    host: fanniemae.wd1.myworkdayjobs.com
+    site: FannieMaeCareers
+  - company: Fenwick & West
+    host: fenwick.wd1.myworkdayjobs.com
+    site: Fenwick_External_Careers
+  - company: Freddie Mac
+    host: freddiemac.wd5.myworkdayjobs.com
+    site: External
+  - company: GE Vernova
+    host: gevernova.wd5.myworkdayjobs.com
+    site: vernova_externalsite
+  - company: General Motors
+    host: generalmotors.wd5.myworkdayjobs.com
+    site: Careers_GM
+  - company: Great American Insurance Company
+    host: gaig.wd1.myworkdayjobs.com
+    site: GAIG_External
+  - company: Guardian Life
+    host: guardianlife.wd5.myworkdayjobs.com
+    site: guardian-life-careers
+  - company: Guidehouse
+    host: guidehouse.wd1.myworkdayjobs.com
+    site: External
+  - company: Highmark Health
+    host: highmarkhealth.wd1.myworkdayjobs.com
+    site: highmark
+  - company: Humana
+    host: humana.wd5.myworkdayjobs.com
+    site: humana_external_career_site
+  - company: IGS Energy / IGS Solar
+    host: igsenergy.wd1.myworkdayjobs.com
+    site: igs
+  - company: Itron
+    host: itron.wd5.myworkdayjobs.com
+    site: Early_Careers
+  - company: J.M. Smucker
+    host: smucker.wd5.myworkdayjobs.com
+    site: US_External_Careers
+  - company: Johns Manville
+    host: jm.wd103.myworkdayjobs.com
+    site: External
+  - company: LPL Financial Holdings
+    host: lplfinancial.wd1.myworkdayjobs.com
+    site: university
+  - company: LabCorp
+    host: labcorp.wd1.myworkdayjobs.com
+    site: external
+  - company: Mars Inc.
+    host: mars.wd3.myworkdayjobs.com
+    site: External
+  - company: Mastercard
+    host: mastercard.wd1.myworkdayjobs.com
+    site: Campus
+  - company: Medline
+    host: medline.wd5.myworkdayjobs.com
+    site: Medline
+  - company: Meijer
+    host: meijer.wd5.myworkdayjobs.com
+    site: Meijer
+  - company: Merck
+    host: msd.wd5.myworkdayjobs.com
+    site: searchjobs
+  - company: Momentive Performance Materials
+    host: momentive.wd1.myworkdayjobs.com
+    site: MC
+  - company: Nissan
+    host: alliance.wd3.myworkdayjobs.com
+    site: nissanjobs
+  - company: Northwestern Mutual
+    host: northwesternmutual.wd5.myworkdayjobs.com
+    site: corporate-careers
+  - company: Oshkosh
+    host: oshkoshcorporation.wd5.myworkdayjobs.com
+    site: Oshkosh
+  - company: Philips
+    host: philips.wd3.myworkdayjobs.com
+    site: jobs-and-careers
+  - company: Procter & Gamble
+    host: pg.wd5.myworkdayjobs.com
+    site: '1000'
+  - company: PwC
+    host: pwc.wd3.myworkdayjobs.com
+    site: US_Entry_Level_Careers
+  - company: QTS
+    host: qtsdatacenters.wd5.myworkdayjobs.com
+    site: qts
+  - company: RSM
+    host: rsm.wd1.myworkdayjobs.com
+    site: RSMCareers
+  - company: Regeneron
+    host: regeneron.wd1.myworkdayjobs.com
+    site: Careers
+  - company: Repsol (US renewables)
+    host: repsol.wd3.myworkdayjobs.com
+    site: repsol
+  - company: Risepoint
+    host: risepoint.wd503.myworkdayjobs.com
+    site: Risepoint
+  - company: Ryan Companies
+    host: ryancompanies.wd5.myworkdayjobs.com
+    site: ryancompanies
+  - company: Stryker
+    host: stryker.wd1.myworkdayjobs.com
+    site: StrykerCareers
+  - company: TIAA
+    host: tiaa.wd1.myworkdayjobs.com
+    site: Search
+  - company: The Toro Company (Ditch Witch)
+    host: ttc.wd1.myworkdayjobs.com
+    site: Toro_External_Careers
+  - company: Travelers
+    host: travelers.wd5.myworkdayjobs.com
+    site: External
+  - company: Trinity Life Sciences
+    host: trinitylifesciences.wd108.myworkdayjobs.com
+    site: Trinity
+  - company: Trumpf
+    host: trumpf.wd3.myworkdayjobs.com
+    site: trumpf_students
+  - company: USAA
+    host: usaa.wd1.myworkdayjobs.com
+    site: USAAJOBSWD
+  - company: Uline
+    host: uline.wd1.myworkdayjobs.com
+    site: Uline_Careers
+  - company: Workday
+    host: workday.wd5.myworkdayjobs.com
+    site: Workday_Early_Career
+  - company: Zebra Technologies
+    host: zebra.wd501.myworkdayjobs.com
+    site: Zebra_careers
+  greenhouse:
+    gassouth: Gas South
+    kyowakirinusa90: Kyowa Kirin North America
+    cypresscreekrenewables: Cypress Creek Renewables
+    charlesriverassociates: Charles River Associates
+    rclco: RCLCO
+    trovebrands: Trove Brands
+    rfsmart: RF-SMART
+    clearwayjobs: Clearway Energy Group
+    schonfeld: Schonfeld
+    generalmatter: General Matter
+    momentumcompany3: Momentum
+    amca: Amca
+    cloudflare: Cloudflare
+    scoutmotors: Scout Motors
+    divergent: Divergent Technologies
+    rubrik: Rubrik
+  lever:
+    standtogether: Stand Together
+    immuta: Immuta
+    ethree: Energy + Environmental Economics (E3)
+  ashby:
+    telus-digital: TELUS Digital
+    bedrock-robotics: Bedrock Robotics
+  oracle:
+  - company: Navy Federal
+    host: fa-etbx-saasfaprod1.fa.ocs.oraclecloud.com
+    site: nfcu
+  - company: Vertiv
+    host: egup.fa.us2.oraclecloud.com
+    site: CX
+  - company: Williams-Sonoma
+    host: ehac.fa.us6.oraclecloud.com
+    site: CX_1
+  - company: ADT
+    host: fa-erqb-saasfaprod1.fa.ocs.oraclecloud.com
+    site: CX_1
+  - company: American Express
+    host: egug.fa.us2.oraclecloud.com
+    site: CX_1
+  - company: AutoZone
+    host: egud.fa.us2.oraclecloud.com
+    site: CX_1
+  - company: Vertiv
+    host: egup.fa.us2.oraclecloud.com
+    site: CX_1
+  - company: Citizens Financial Group
+    host: hcgn.fa.us2.oraclecloud.com
+    site: CX_1
+  - company: UL Solutions
+    host: fa-eups-saasfaprod1.fa.ocs.oraclecloud.com
+    site: ULSolutionsCareers
+  - company: CSX
+    host: fa-eowa-saasfaprod1.fa.ocs.oraclecloud.com
+    site: CSXCareers

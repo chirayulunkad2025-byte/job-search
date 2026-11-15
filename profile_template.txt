@@ -1,0 +1,10 @@
+Edit this, then paste it into the PROFILE secret (it is never stored in the public repo).
+
+- Dartmouth Thayer School, Master of Engineering Management (MEM); graduating November 2027; returns to school after the summer.
+- Wants Summer 2027 US internships. Top priority: product-manager-style work at companies that make physical products
+  (product management, product planning, product marketing, brand management, commercial strategy, business development,
+  market development, growth/business strategy). Also open to strategy consulting, operations, supply chain and business analytics.
+- Background: [add 2-3 lines: prior roles, industries (e.g. CPG/ingredients), skills].
+- International student on F-1: works via CPT, later STEM OPT; does not need H-1B. Postings that require US citizenship,
+  a security clearance, or exclude F-1/CPT/OPT are a poor fit; "no sponsorship" postings may still work.
+- Not eligible: MBA-only roles, undergraduate-only roles, roles needing graduation after Dec 2027... (adjust).
